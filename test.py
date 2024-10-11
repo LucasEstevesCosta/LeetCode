@@ -14,7 +14,8 @@ def removeElement(nums: list[int], val: int) -> int:
             pi += 1
         
     return pi
-        
+
+
 """TEST CASES"""
 example1 = [3, 2, 2, 3]
 val1 = 3
