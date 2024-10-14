@@ -24,9 +24,9 @@ def thirdMax(nums: list[int]) -> int:
         return max(unique_nums)
     
     # Initialize the maximum values
-    first_max = -1
-    second_max = -1
-    third_max = -1
+    first_max = float('-inf')
+    second_max = float('-inf')
+    third_max = float('-inf')
     
     # Iterate through the unique numbers
     for number in unique_nums:
@@ -70,7 +70,10 @@ class TestThirdMax(unittest.TestCase):
             The third distinct maximum is 1."""
             
     def test_ex4(self):
-        self.assertEqual(thirdMax([1,1,2]), 2)
+        self.assertEqual(thirdMax([1, 1, 2]), 2)
+        
+    def test_ex5(self):
+        self.assertEqual(thirdMax([1,2,-2147483648]), -2147483648)
 
 if __name__ == '__main__':
     unittest.main()
