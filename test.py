@@ -35,3 +35,4 @@ print(f"k1 = {k1}, example1 = {example1[:k1]}; EXPECTED OUTPUT: [2, 2]")
 
 k2 = removeElement(example2, val2)
 print(f"k2 = {k2}, example2 = {example2[:k2]}; EXPECTED OUTPUT: [0, 1, 4, 0, 3]")
+

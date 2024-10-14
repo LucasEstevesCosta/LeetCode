@@ -1,0 +1,36 @@
+{
+    "editor.autoClosingBrackets": "always",
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.packageIndexDepths": [
+        
+        {
+            "name": "sklearn",
+            "depth": 2
+        },
+        {
+            "name": "matplotlib",
+            "depth": 2
+        },
+        {
+            "name": "scipy",
+            "depth": 2
+        },
+        {
+            "name": "django",
+            "depth": 2
+        },
+        {
+            "name": "flask",
+            "depth": 2
+        },
+        {
+            "name": "fastapi",
+            "depth": 2
+        }
+    ],
+    "[python]": {
+        "editor.autoClosingBrackets": "always",
+        "editor.autoClosingComments": "always",
+        "editor.autoClosingQuotes": "always"
+    }
+}
