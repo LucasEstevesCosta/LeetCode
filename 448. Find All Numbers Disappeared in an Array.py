@@ -22,10 +22,10 @@ import unittest
 class TestfindDisappearedNumbers(unittest.TestCase):
     
     def test_1(self):
-        self.assertEqual(findDisappearedNumbers([4,3,2,7,8,2,3,1]), [5,6])
+        self.assertEqual(findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]), [5, 6])
         
     def test_2(self):
-        self.assertEqual(findDisappearedNumbers([1,1]), [2])
+        self.assertEqual(findDisappearedNumbers([1, 1]), [2])
 
 
 if __name__ == '__main__':
