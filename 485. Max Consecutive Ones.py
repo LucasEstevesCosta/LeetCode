@@ -1,24 +1,20 @@
 """Given a binary array nums, return the maximum number of consecutive 1's in the array."""
-from typing import List
+
+def find_max_consecutive_ones(nums: list[int]) -> int:
 
 
-def findMaxConsecutiveOnes(nums: List[int]) -> int:
-    tot_temp = 0
-    tot_final = 0
-    for n in nums:
-        if n == 1:
-            tot_temp += 1
-            tot_final = max(tot_final, tot_temp)
-        else:
-            tot_temp = 0
-    return tot_final
 
+"""TESTS"""
+import unittest
+
+class test_find_max_consecutive_ones(unittest.TestCase):
+    def test_ex1(self):
+        self.assertEquals(find_max_consecutive_ones([1, 1, 0, 1, 1, 1]), 3)
+
+    def test_ex2(self):
+        self.assertEquals(find_max_consecutive_ones([1, 0, 1, 1, 0, 1]), 2)
 
 # Test
 example1 = [1, 1, 0, 1, 1, 1]  # Output: 3
 example2 = [1, 0, 1, 1, 0, 1]  # Output: 2
 example3 = [1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1]
-
-print(findMaxConsecutiveOnes(example1))
-print(findMaxConsecutiveOnes(example2))
-print(findMaxConsecutiveOnes(example3))
