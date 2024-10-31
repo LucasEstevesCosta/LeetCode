@@ -8,7 +8,7 @@ def find_max_consecutive_ones(nums: list[int]) -> int:
     for pos, num in enumerate(nums):
         if num == 1:
             temp_counter += 1
-        if num == 0 or pos == len(nums) - 1:
+        if num != 1 or pos == len(nums) - 1:
             if temp_counter > final_counter:
                 final_counter = temp_counter
             temp_counter = 0

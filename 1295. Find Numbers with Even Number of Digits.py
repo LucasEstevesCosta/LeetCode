@@ -9,11 +9,11 @@ def find_numbers(nums: list[int]) -> int:
     :type nums: List[int]
     :rtype: int
     """
-    tot_even_digit_numbers = 0
+    tot_nums_even_digits = 0
     for num in nums:
         if len(str(num)) % 2 == 0:
-            tot_even_digit_numbers += 1
-    return tot_even_digit_numbers
+            tot_nums_even_digits += 1
+    return tot_nums_even_digits
 
 
 # TEST CASES

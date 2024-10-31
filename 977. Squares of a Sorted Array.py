@@ -1,31 +1,33 @@
+"""Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order."""
+
+
 def sorted_squares(nums: list) -> list:
-    """
-    :type nums: List[int]
-    :rtype: List[int]
-    """
-    """result = list()
-    for i in nums:
-        result.append(i * i)
-    return sorted(result)"""
     n = len(nums)
+    l_pointer, r_pointer = 0, n - 1
     result = [0] * n
-    left, right = 0, n - 1
     for i in range(n - 1, -1, -1):
-        if abs(nums[left]) > abs(nums[right]):
-            square = nums[left] * nums[left]
-            left += 1
+        if abs(nums[l_pointer]) > abs(nums[r_pointer]):
+            square = nums[l_pointer] * nums[l_pointer]
+            l_pointer += 1
         else:
-            square = nums[right] * nums[right]
-            right -= 1
+            square = nums[r_pointer] * nums[r_pointer]
+            r_pointer -= 1
+        
         result[i] = square
+    
     return result
 
 
 """Test Cases"""
-example1 = [-4, -1, 0, 3, 10]  # Output: [0, 1, 9, 16, 100]
-# Explanation: After squaring, the array becomes [16, 1, 0, 9, 100].
-# After sorting, it becomes [0, 1, 9, 16, 100].
-example2 = [-7, -3, 2, 3, 11]  # Output: [4, 9, 9, 49, 121]
+import unittest
 
-print(sorted_squares(example1))
-print(sorted_squares(example2))
+class TestSortedSquares(unittest.TestCase):
+    def test_ex1(self):
+        self.assertEqual(sorted_squares([-4, -1, 0, 3, 10]), [0, 1, 9, 16, 100])
+    
+    def test_ex2(self):
+        self.assertEqual(sorted_squares([-7, -3, 2, 3, 11]), [4, 9, 9, 49, 121])
+
+
+if __name__ == '__main__':
+    unittest.main()
