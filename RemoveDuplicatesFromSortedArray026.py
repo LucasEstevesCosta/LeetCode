@@ -10,24 +10,6 @@ def removeDuplicates(nums: list[int]) -> int:
     return unique
 
 
-"""TEST CASES"""
-example1 = [1, 1, 2]
-"""Output: 2, nums = [1,2,_]
-Explanation: Your function should return k = 2, with the first two elements of nums being 1 and 2 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores)."""
-
-example2 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
-"""Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
-Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, 4 respectively.
-It does not matter what you leave beyond the returned k (hence they are underscores)."""
-
-k1 = removeDuplicates(example1)
-print(f"k1 = {k1}, example1 = {example1[:k1]}: EXPECTED OUTPUT: [1,2,_]")
-
-k2 = removeDuplicates(example2)
-print(f"k2 = {k2}, example2 = {example2[:k2]}: EXPECTED OUTPUT: [0,1,2,3,4,_,_,_,_,_]")
-
-
 """Unit tests"""
 
 
@@ -35,4 +17,10 @@ class TestRemoveDuplicates(unittest.TestCase):
     def testExample1(self):
         nums = [1, 1, 2]
         self.assertEqual(removeDuplicates(nums), 2)
-        self.assertEqual(nums[:removeDuplicates(nums)], [1, 2])
+        self.assertEqual(nums[:2], [1, 2])
+
+    def testExample2(self):
+        nums = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
+        numsProcessed = removeDuplicates(nums)
+        self.assertEqual(numsProcessed, 5)
+        self.assertEqual(nums[:numsProcessed], [0, 1, 2, 3, 4])
