@@ -1,10 +1,14 @@
-def remove_duplicates(nums: list[int]) -> int:
-    next_unique = 1
+import unittest
+
+
+def removeDuplicates(nums: list[int]) -> int:
+    unique = 1
     for i in range(1, len(nums)):
-        if nums[i] != nums[i - 1]:
-            nums[next_unique] = nums[i]
-            next_unique += 1
-    return next_unique
+        if nums[i - 1] != nums[i]:
+            nums[unique] = nums[i]
+            unique += 1
+    return unique
+
 
 """TEST CASES"""
 example1 = [1, 1, 2]
@@ -17,8 +21,18 @@ example2 = [0, 0, 1, 1, 1, 2, 2, 3, 3, 4]
 Explanation: Your function should return k = 5, with the first five elements of nums being 0, 1, 2, 3, 4 respectively.
 It does not matter what you leave beyond the returned k (hence they are underscores)."""
 
-k1 = remove_duplicates(example1)
+k1 = removeDuplicates(example1)
 print(f"k1 = {k1}, example1 = {example1[:k1]}: EXPECTED OUTPUT: [1,2,_]")
 
-k2 = remove_duplicates(example2)
+k2 = removeDuplicates(example2)
 print(f"k2 = {k2}, example2 = {example2[:k2]}: EXPECTED OUTPUT: [0,1,2,3,4,_,_,_,_,_]")
+
+
+"""Unit tests"""
+
+
+class TestRemoveDuplicates(unittest.TestCase):
+    def testExample1(self):
+        nums = [1, 1, 2]
+        self.assertEqual(removeDuplicates(nums), 2)
+        self.assertEqual(nums[:removeDuplicates(nums)], [1, 2])
